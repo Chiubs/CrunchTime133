@@ -48,7 +48,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
 
                               //echo "Success! Logged in as " .$_SESSION['fname']. " " .$_SESSION['lname']. ". Your user ID is " .$_SESSION['userID']. " and your email is " .$_SESSION['email']. ".";
 
-                              //header('Location: /test_userpage.php');
+                              header('Location: /homepage.php');
                               /*NOTE: Use the above line to redirect to the page needed, i.e. Location: /homepage.php*/
                         }
                   }
