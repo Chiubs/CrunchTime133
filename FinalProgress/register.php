@@ -1,3 +1,7 @@
+<?php
+      $message = '';
+?>
+
 <html lang="en" dir="ltr">
 
 <head>
@@ -19,33 +23,32 @@
     <h1>Registration</h1>
     <div id="form">
       <form action="register.php" method="post">
+            <?php
+                  echo $message;
+            ?>
         <div class="form-group">
           <label for="First name"> First name:</label>
-          <input name="fname" type="text" placeholder = "First Name">
+          <input name="fname" type="text" placeholder = "First Name" required>
         </div>
         <div class="form-group">
           <label for="Last name"> Last name: </label>
-          <input name="lname" type="text" placeholder = "Last Name">
+          <input name="lname" type="text" placeholder = "Last Name"required>
         </div>
         <div class="form-group">
           <label for="Username"> Username: </label>
-          <input name="username" type="text" placeholder = "User Name">
+          <input name="username" type="text" placeholder = "User Name"required>
         </div>
         <div class="form-group">
           <label for="Pin"> PIN: </label>
-          <input name="pin" type="password" placeholder = "PIN Number">
+          <input name="pin" type="password" placeholder = "PIN Number"required>
         </div>
 
-        <!--div class = "form-group">
-        <label for ="Password">Password: </label>
-        <input type ="password" name="password">
-      </div-->
         <div class="form-group">
           <label for="Email"> Email: </label>
-          <input name="email" type="text" placeholder = "Email">
+          <input name="email" type="text" placeholder = "Email" required>
         </div>
         <input type="submit" name="submit" id="submit"></input>
-       
+
       </form>
       <button onclick="document.location='login.php'" class = "btn">Have an account?</button>
     </div>
@@ -129,26 +132,12 @@
         //Register user
         $sql = "INSERT INTO useraccounts (userID, fname, lname, username, /*password,*/ pin, email) VALUES
                         ('$userID','$fname','$lname','$username','$pin','$email')";
-        //$sql2 = "INSERT INTO accounts (userID) VALUES ('$userID')";
 
-
-        // echo $sql;
         $results = mysqli_query($conn, $sql);
 
-
-        /*if ($results) {
-                    $accounts = "SELECT * FROM accounts";
-                    $initialize = mysqli_query($conn, $accounts);
-                    /*BEGIN: initializing the checking and savings accounts*/
-
         if ($results) {
-          echo "Registered."; //As a toast message
-          $sql2 = "INSERT INTO accounts (userID, acctname, balance) VALUES
-                            ('$userID','Savings','0.00')"; //starting balance in each account is zero
-          $message = "Success! Account registered.";
-          $results2 = mysqli_query($conn, $sql2);
-          echo "<meta http-equiv='refresh' content='0'>";
-          //header('Location: login.php');
+
+          header('Location: login.php');
           //Change location based on where project folder is saved.
         } else {
           echo mysqli_error($conn);
@@ -157,15 +146,13 @@
 
         mysqli_close($conn);
       } else {
-        echo "Error: that username or email is already in use.";
+        $message = "Error: that username or email is already in use.";
       }
     } else {
-      echo "A field is empty."; //Also as a toast message
+      //echo "A field is empty."; //Also as a toast message
     }
   }
-  /*else {
-      echo "Form was not submitted.";
-    }*/
+
   ?>
 </body>
 

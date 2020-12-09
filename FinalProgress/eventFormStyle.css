@@ -16,13 +16,10 @@ div#success {
 }
 
 h1{
-
-    font-size: 20px;
+    font-size: 40px;
 }
 
 h2{
-
-
     font-size: 20px;
 }
 
@@ -119,7 +116,7 @@ h2{
   }
 
   .btn:active{
-    
+
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     background-color:#fb2525;
     box-shadow: 0 4px #666;
@@ -129,5 +126,3 @@ h2{
 
 
   }
-
- 
